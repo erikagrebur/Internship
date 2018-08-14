@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 1635571010}
   - component: {fileID: 1635571012}
   - component: {fileID: 1635571011}
+  - component: {fileID: 1635571013}
   m_Layer: 5
   m_Name: HejSpeech
   m_TagString: Untagged
@@ -640,6 +641,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635571009}
+--- !u!95 &1635571013
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635571009}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c1375aa242637e419ecd0960e80f13d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1791921639
 GameObject:
   m_ObjectHideFlags: 0
