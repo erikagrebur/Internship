@@ -18,5 +18,14 @@ public class StartTheGame : MonoBehaviour {
     {
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeech").gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("LetStartButton").gameObject.SetActive(false);
+
+        Debug.Log("eeeeeeehvhjfjhfhjfhj");
+        StandUp();
+    }
+
+    public void StandUp()
+    {
+        Debug.Log("itt vagyok, ez a FrameLower: " + GameObject.FindGameObjectWithTag("Cat"));
+        GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").GetComponent<Animator>().Play("idle_02_copy_sit_before_stand_up");
     }
 }
