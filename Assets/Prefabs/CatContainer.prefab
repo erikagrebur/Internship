@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655793353707240a195aee929b80d41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrameLowerLeft: {fileID: 1958703647502244}
+  Cat: {fileID: 1958703647502244}
 --- !u!137 &137527858443394662
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
