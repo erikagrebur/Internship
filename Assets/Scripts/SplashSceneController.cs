@@ -18,6 +18,6 @@ public class SplashSceneController : MonoBehaviour {
     IEnumerator OpenScene()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("Slider_first");
+        SceneManager.LoadScene("LanguageSelector");
     }
 }

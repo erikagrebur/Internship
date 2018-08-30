@@ -118,6 +118,23 @@ namespace GoogleARCore.Examples.AugmentedImage
             HejSpeech.SetActive(true);
 
             yield return new WaitForSeconds(0.81f);
+
+            if(PlayerPrefs.GetString("appLang") != null)
+            {
+                switch (PlayerPrefs.GetString("appLang"))
+                {
+                    case "German":
+                        HejSpeechButton.transform.Find("Text").GetComponent<Text>().text = "Machen wir das";
+                        break;
+                    case "Danish":
+                        HejSpeechButton.transform.Find("Text").GetComponent<Text>().text = "Lad os goere det";
+                        break;
+                    default:
+                        HejSpeechButton.transform.Find("Text").GetComponent<Text>().text = "Let's do it";
+                        break;
+                }
+            }
+
             HejSpeechButton.SetActive(true);
         }
     }
