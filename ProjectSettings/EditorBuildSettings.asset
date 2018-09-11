@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SplashScreenScene.unity
     guid: 8562e8b0c9fa62144907bd98cc022505
   - enabled: 1
+    path: Assets/Scenes/LanguageSelector.unity
+    guid: 9516e399d5eb9ed4c8eb633fa11f0d40
+  - enabled: 1
     path: Assets/Scenes/Slider_First.unity
     guid: 8edef9bf421c2ce4fb631cf7ed14178c
   - enabled: 1

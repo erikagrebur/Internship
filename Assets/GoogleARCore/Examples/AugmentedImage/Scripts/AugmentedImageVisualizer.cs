@@ -16,6 +16,8 @@ namespace GoogleARCore.Examples.AugmentedImage
         // Cat model which will be shown
         public GameObject Cat;
 
+        public bool FollowTheCamera = true;
+
         /// <summary>
         /// The Unity Update method.
         /// </summary>
@@ -26,11 +28,15 @@ namespace GoogleARCore.Examples.AugmentedImage
                 Cat.SetActive(false);
                 return;
             }
-            GameObject objectToFollow = GameObject.FindWithTag("MainCamera");
-            var lookPos = objectToFollow.transform.position - Cat.transform.position;
-            lookPos.y = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
-            Cat.transform.rotation = Quaternion.Slerp(Cat.transform.rotation, rotation, Time.deltaTime * 5F);
+
+            if(FollowTheCamera)
+            {
+                GameObject objectToFollow = GameObject.FindWithTag("MainCamera");
+                var lookPos = objectToFollow.transform.position - Cat.transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(lookPos);
+                Cat.transform.rotation = Quaternion.Slerp(Cat.transform.rotation, rotation, Time.deltaTime * 5F);
+            }
 
             float halfWidth = Image.ExtentX / 2;
             float halfHeight = Image.ExtentZ / 2;
