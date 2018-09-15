@@ -34,6 +34,6 @@ public class LanguageSelectorController : MonoBehaviour {
                 PlayerPrefs.SetString("appLang", "English");
                 break;
         }
-        SceneManager.LoadScene("Slider_first");
+        SceneManager.LoadScene("WelcomeScene");
     }
 }
