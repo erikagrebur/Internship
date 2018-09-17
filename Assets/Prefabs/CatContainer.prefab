@@ -1262,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cat: {fileID: 1958703647502244}
+  FollowTheCamera: 1
 --- !u!137 &137527858443394662
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
