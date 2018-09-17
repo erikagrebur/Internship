@@ -3,18 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FirstQuizController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+public class FirstQuizController : MonoBehaviour
+{
     public void Check()
     {
         var buttonName = EventSystem.current.currentSelectedGameObject.name;
@@ -22,8 +12,9 @@ public class FirstQuizController : MonoBehaviour {
         switch (buttonName)
         {
             case "Yes_Btn":
-                Debug.Log("Good answer");
-                // TODO: What should happen when the answer is good
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstGift").gameObject.SetActive(true);
+                StartCoroutine(ForwardAfterSeconds());
                 break;
             case "Help_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizImage").gameObject.SetActive(false);
@@ -58,5 +49,15 @@ public class FirstQuizController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Try_Again_Btn").gameObject.SetActive(true);
                 break;
         }
+
+
+    }
+    IEnumerator ForwardAfterSeconds()
+    {
+        yield return new WaitForSeconds(4);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstGift").gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(true);
     }
 }
