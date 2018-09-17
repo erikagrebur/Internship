@@ -42,6 +42,8 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// </summary>
         public GameObject FitToScanOverlay;
 
+        public bool MapOn = false;
+
         public GameObject HejSpeech;
         public GameObject HejSpeechButton;
         private bool HejSpeechOn = false;
@@ -56,6 +58,7 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// </summary>
         public void Update()
         {
+            
             // Exit the app when the 'back' button is pressed.
             if (Input.GetKey(KeyCode.Escape))
             {
@@ -108,8 +111,10 @@ namespace GoogleARCore.Examples.AugmentedImage
                     return;
                 }
             }
-
-            FitToScanOverlay.SetActive(true);
+            if(!MapOn)
+            {
+                FitToScanOverlay.SetActive(true);
+            }
         }
 
         IEnumerator ForwardToAfterS()
