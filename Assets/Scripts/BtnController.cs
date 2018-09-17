@@ -15,7 +15,6 @@ public class BtnController : MonoBehaviour {
     public void Next()
     {
         var buttonName = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log("buttonName" + buttonName);
         switch (buttonName)
         {
             case "Sure_Btn":
@@ -86,9 +85,7 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Let_Start_Btn").gameObject.SetActive(true);
                 break;
             default:
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
+                Debug.Log("Something went wrong");
                 break;
         }
        

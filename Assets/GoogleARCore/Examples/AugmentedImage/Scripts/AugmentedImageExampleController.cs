@@ -111,14 +111,17 @@ namespace GoogleARCore.Examples.AugmentedImage
                     return;
                 }
             }
+            // tesztelésig kivéve:
+            /*
             if(!MapOn)
             {
                 FitToScanOverlay.SetActive(true);
-            }
+            }*/
         }
 
         IEnumerator ForwardToAfterS()
         {
+            
             yield return new WaitForSeconds(3);
             HejSpeech.SetActive(true);
             /*
