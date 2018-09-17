@@ -32,6 +32,7 @@ public class StartTheGame : MonoBehaviour {
 
             if(turningTime >= 1)
             {
+                Next_01();
                 turn = false;
             }
         }
@@ -57,5 +58,10 @@ public class StartTheGame : MonoBehaviour {
         //GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").GetComponent<Animator>().Play("turn_left");
         //GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").GetComponent<Animator>().Play("test02");
 
+    }
+
+    public void Next_01()
+    {
+        GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").GetComponent<Animator>().Play("catAnim_01");
     }
 }
