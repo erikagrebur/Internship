@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/GoogleARCore/Examples/AugmentedImage/Scenes/AugmentedImage.unity
@@ -29,4 +30,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+=======
+  m_Scenes: []
+>>>>>>> 7c10e789d888b3ad62d3b498a6c13862b25285b5
   m_configObjects: {}
