@@ -9,13 +9,14 @@ using GoogleARCore.Examples.AugmentedImage;
 
 public class BtnController : MonoBehaviour {
     private string catName;
-
+    
     private string[] names = { "Oscar", "Max", "Tiger", "Sam", "Misty", "Simba", "Coco", "Chloe", "Lucy", "Sacha", "Puss", "Bella", "Molly", "Milo", "Angel", "Lala", "Ginger", "Smokey" };
+
+    public string firstBackpackFrom;
 
     public void Next()
     {
         var buttonName = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log("buttonName" + buttonName);
         switch (buttonName)
         {
             case "Sure_Btn":
@@ -40,7 +41,6 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Start_Btn":
                 catName = GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").Find("Text").GetComponent<Text>().text;
-                Debug.Log("belefut"+ catName);
                 if (catName == "")
                 {
                     GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(false);
@@ -51,7 +51,6 @@ public class BtnController : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("Slider").transform.Find("Try_Again_Btn").gameObject.SetActive(true);
                 } else
                 {
-                    Debug.Log("else ág");
                     GameObject.FindGameObjectWithTag("Slider").transform.Find("Saving_Txt").gameObject.SetActive(true);
                     PlayerPrefs.SetString("catName", catName);
                     SceneManager.LoadScene("AugmentedImage");
@@ -79,10 +78,49 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(true);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
                 break;
+            case "Hej_Speech_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeech").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FollowMe").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Let_Start_Btn").gameObject.SetActive(true);
+                break;
+            case "Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(false);
+                Debug.Log("itt még jár?");
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(true);
+                break;
+            case "Continue_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(false);
+                // TODO: Induljon el a következő animáció ( a második quiz előtti )
+                break;
+            case "Close_Backpack_Btn":
+                if(firstBackpackFrom == "SecondQuizImage")
+                {
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizImage").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Help_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Backpack_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("German_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Danish_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Russian_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("English_Btn").gameObject.SetActive(true);
+                    firstBackpackFrom = "";
+                }
+                else
+                {
+                    Debug.Log("idebelemegy" + firstBackpackFrom);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(true);
+                }
+                break;
             default:
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
+                Debug.Log("Something went wrong");
                 break;
         }
        
