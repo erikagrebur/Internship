@@ -119,11 +119,11 @@ namespace GoogleARCore.Examples.AugmentedImage
 
         IEnumerator ForwardToAfterS()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
             HejSpeech.SetActive(true);
-
+            /*
             yield return new WaitForSeconds(0.81f);
-
+            
             if(PlayerPrefs.GetString("appLang") != null)
             {
                 switch (PlayerPrefs.GetString("appLang"))
@@ -138,7 +138,7 @@ namespace GoogleARCore.Examples.AugmentedImage
                         HejSpeechButton.transform.Find("Text").GetComponent<Text>().text = "Let's do it";
                         break;
                 }
-            }
+            }*/
 
             HejSpeechButton.SetActive(true);
         }
