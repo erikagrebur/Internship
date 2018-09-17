@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
+using GoogleARCore.Examples.AugmentedImage;
 
 public class BtnController : MonoBehaviour {
-    private string inputTxt;
+    private string catName;
 
     private string[] names = { "Oscar", "Max", "Tiger", "Sam", "Misty", "Simba", "Coco", "Chloe", "Lucy", "Sacha", "Puss", "Bella", "Molly", "Milo", "Angel", "Lala", "Ginger", "Smokey" };
 
@@ -38,11 +39,50 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
                 break;
             case "Start_Btn":
-                inputTxt = GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").Find("Text").GetComponent<Text>().text;
-              
+                catName = GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").Find("Text").GetComponent<Text>().text;
+                Debug.Log("belefut"+ catName);
+                if (catName == "")
+                {
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("WrongSlider").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Try_Again_Btn").gameObject.SetActive(true);
+                } else
+                {
+                    Debug.Log("else ág");
+                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Saving_Txt").gameObject.SetActive(true);
+                    PlayerPrefs.SetString("catName", catName);
+                    SceneManager.LoadScene("AugmentedImage");
+                }
+                break;
+            case "Try_Again_Btn":
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("WrongSlider").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Try_Again_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
+                break;
+            case "Show_Map_Btn":
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = true;
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Close_Map_Btn").gameObject.SetActive(true);
+                break;
+            case "Close_Map_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Close_Map_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = false;
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
                 break;
             default:
-                SceneManager.LoadScene("Slider_Third");
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
                 break;
         }
        
