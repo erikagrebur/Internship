@@ -57,7 +57,5 @@ public class FirstQuizController : MonoBehaviour
         yield return new WaitForSeconds(4);
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstGift").gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(true);
-        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(true);
-        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(true);
     }
 }

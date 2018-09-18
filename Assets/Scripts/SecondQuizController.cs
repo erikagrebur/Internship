@@ -24,7 +24,7 @@ public class SecondQuizController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Close_Help_Btn").gameObject.SetActive(true);
                 break;
             case "Backpack_Btn":
-                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<BtnController>().firstBackpackFrom = "SecondQuizImage";
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<BtnController>().backpackFrom = "SecondQuizImage";
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizImage").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Help_Btn").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Backpack_Btn").gameObject.SetActive(false);
@@ -90,17 +90,18 @@ public class SecondQuizController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Try_Again_Btn").gameObject.SetActive(true);
                 break;
             case "Russian_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizImage").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Help_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Backpack_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("German_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Danish_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Russian_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("English_Btn").gameObject.SetActive(false);
-
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondGift").gameObject.SetActive(true);
+                StartCoroutine(ForwardAfterSeconds());
                 break;
             default:
                 break;
         }
+    }
+    IEnumerator ForwardAfterSeconds()
+    {
+        yield return new WaitForSeconds(4);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondGift").gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(true);
     }
 }

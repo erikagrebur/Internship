@@ -12,7 +12,7 @@ public class BtnController : MonoBehaviour {
     
     private string[] names = { "Oscar", "Max", "Tiger", "Sam", "Misty", "Simba", "Coco", "Chloe", "Lucy", "Sacha", "Puss", "Bella", "Molly", "Milo", "Angel", "Lala", "Ginger", "Smokey" };
 
-    public string firstBackpackFrom;
+    public string backpackFrom;
 
     public void Next()
     {
@@ -86,19 +86,14 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Backpack_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(false);
-                Debug.Log("itt még jár?");
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(true);
                 break;
             case "Continue_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(false);
                 // TODO: Induljon el a következő animáció ( a második quiz előtti )
                 break;
             case "Close_Backpack_Btn":
-                if(firstBackpackFrom == "SecondQuizImage")
+                if(backpackFrom == "SecondQuizImage")
                 {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(false);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizImage").gameObject.SetActive(true);
@@ -108,15 +103,34 @@ public class BtnController : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Danish_Btn").gameObject.SetActive(true);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Russian_Btn").gameObject.SetActive(true);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("English_Btn").gameObject.SetActive(true);
-                    firstBackpackFrom = "";
+                    backpackFrom = "";
                 }
                 else
                 {
-                    Debug.Log("idebelemegy" + firstBackpackFrom);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(false);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("Backpack_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("Continue_Btn").gameObject.SetActive(true);
+                }
+                break;
+            case "Second_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(true);
+                break;
+            case "Second_Continue_Btn":
+                Debug.Log("beleszalad");
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(false);
+                // TODO: Induljon el a következő animáció ( a harmadik quiz előtti )
+                break;
+            case "Close_Second_Backpack_Btn":
+                if (backpackFrom == "ThirdQuizImage")
+                {
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(false);
+                    // TODO: ide az jön, hogy a harmadik quiz képeit jelenitse meg megint
+                    backpackFrom = "";
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(true);
                 }
                 break;
             default:
