@@ -12,6 +12,7 @@ public class FirstQuizController : MonoBehaviour
         switch (buttonName)
         {
             case "Yes_Btn":
+                GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").transform.GetComponent<Animator>().Play("catAnim_13");
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstGift").gameObject.SetActive(true);
                 StartCoroutine(ForwardAfterSeconds());

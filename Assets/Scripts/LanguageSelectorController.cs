@@ -13,8 +13,8 @@ public class LanguageSelectorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
 
     public void LanguageSelector()
     {

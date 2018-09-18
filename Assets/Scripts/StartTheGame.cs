@@ -63,5 +63,12 @@ public class StartTheGame : MonoBehaviour {
     public void Next_01()
     {
         GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").GetComponent<Animator>().Play("catAnim_01");
+        StartCoroutine(OpenTheFirstQuiz());
+    }
+
+    IEnumerator OpenTheFirstQuiz()
+    {
+        yield return new WaitForSeconds(14);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").gameObject.SetActive(true);
     }
 }

@@ -12,8 +12,8 @@ public class SplashSceneController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
 
     IEnumerator OpenScene()
     {

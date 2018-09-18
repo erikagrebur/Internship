@@ -71,6 +71,8 @@ namespace GoogleARCore.Examples.AugmentedImage
                 return;
             }
 
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
             // Get updated augmented images for this frame.
             Session.GetTrackables<AugmentedImage>(m_TempAugmentedImages, TrackableQueryFilter.Updated);
 
@@ -111,12 +113,11 @@ namespace GoogleARCore.Examples.AugmentedImage
                     return;
                 }
             }
-            // tesztelésig kivéve:
-            /*
+            
             if(!MapOn)
             {
                 FitToScanOverlay.SetActive(true);
-            }*/
+            }
         }
 
         IEnumerator ForwardToAfterS()
