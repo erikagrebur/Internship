@@ -26,6 +26,7 @@ namespace GoogleARCore.Examples.AugmentedImage
     using GoogleARCore;
     using UnityEngine;
     using UnityEngine.UI;
+    using GoogleARCore.Examples.AugmentedImage;
 
     /// <summary>
     /// Controller for AugmentedImage example.
@@ -47,6 +48,8 @@ namespace GoogleARCore.Examples.AugmentedImage
         public GameObject HejSpeech;
         public GameObject HejSpeechButton;
         private bool HejSpeechOn = false;
+
+        private string customCatNameWelcome;
 
         private Dictionary<int, AugmentedImageVisualizer> m_Visualizers
             = new Dictionary<int, AugmentedImageVisualizer>();
@@ -122,8 +125,18 @@ namespace GoogleARCore.Examples.AugmentedImage
 
         IEnumerator ForwardToAfterS()
         {
+            if(PlayerPrefs.GetString("catName") != null)
+            {
+                customCatNameWelcome = "My name is " + PlayerPrefs.GetString("catName") + ".";
+            } else
+            {
+                customCatNameWelcome = "My name is Misser";
+            }
+            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").GetComponent<Text>().text = customCatNameWelcome;
             
             yield return new WaitForSeconds(3);
+            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Txt").gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").gameObject.SetActive(true);
             HejSpeech.SetActive(true);
             /*
             yield return new WaitForSeconds(0.81f);
