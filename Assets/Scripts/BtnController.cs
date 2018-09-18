@@ -118,21 +118,55 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(true);
                 break;
             case "Second_Continue_Btn":
-                Debug.Log("beleszalad");
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(false);
                 // TODO: Induljon el a következő animáció ( a harmadik quiz előtti )
+                // Bemutatóig:
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(true);
                 break;
             case "Close_Second_Backpack_Btn":
                 if (backpackFrom == "ThirdQuizImage")
                 {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(false);
-                    // TODO: ide az jön, hogy a harmadik quiz képeit jelenitse meg megint
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdQuiz").gameObject.SetActive(true);
                     backpackFrom = "";
                 }
-                else
+                else if(backpackFrom == "ThirdBeforeImage")
+                {
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(true);
+                    backpackFrom = "";
+                } else
                 {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(false);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(true);
+                }
+                break;
+            case "Third_Before_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<BtnController>().backpackFrom = "ThirdBeforeImage";
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondBackpack").gameObject.SetActive(true);
+                break;
+            case "Third_Before_Continue_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdQuiz").gameObject.SetActive(true);
+                break;
+            case "Third_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdAfter").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBackpack").gameObject.SetActive(true);
+                break;
+            case "Third_Continue_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdAfter").gameObject.SetActive(false);
+                // TODO: Induljon el a következő animáció ( a negyedik quiz előtti )
+                break;
+            case "Close_Third_Backpack_Btn":
+                if (backpackFrom == "FourthQuizImage")
+                {
+                    // TODO   
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdAfter").gameObject.SetActive(true);
                 }
                 break;
             default:
