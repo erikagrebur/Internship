@@ -90,6 +90,7 @@ public class SecondQuizController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Try_Again_Btn").gameObject.SetActive(true);
                 break;
             case "Russian_Btn":
+                GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").transform.GetComponent<Animator>().Play("catAnim_20");
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondGift").gameObject.SetActive(true);
                 StartCoroutine(ForwardAfterSeconds());

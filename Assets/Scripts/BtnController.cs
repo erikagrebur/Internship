@@ -90,7 +90,8 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Continue_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
-                // TODO: Induljon el a következő animáció ( a második quiz előtti )
+                GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").transform.GetComponent<Animator>().Play("catAnim_14");
+                StartCoroutine(OpenTheSecondQuiz());
                 break;
             case "Close_Backpack_Btn":
                 if(backpackFrom == "SecondQuizImage")
@@ -148,4 +149,9 @@ public class BtnController : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").GetComponent<InputField>().text = name;
     }
 
+    IEnumerator OpenTheSecondQuiz()
+    {
+        yield return new WaitForSeconds(18);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").gameObject.SetActive(true);
+    }
 }
