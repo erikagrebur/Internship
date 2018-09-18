@@ -80,6 +80,8 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Hej_Speech_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeech").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Txt").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Btn").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FollowMe").gameObject.SetActive(true);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Let_Start_Btn").gameObject.SetActive(true);
