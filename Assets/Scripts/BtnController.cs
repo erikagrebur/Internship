@@ -65,11 +65,11 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
                 break;
             case "Show_Map_Btn":
-                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = true;
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(true);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Close_Map_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = true;
                 break;
             case "Close_Map_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(false);

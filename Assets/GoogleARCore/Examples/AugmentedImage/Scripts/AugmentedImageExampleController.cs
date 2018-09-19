@@ -120,6 +120,7 @@ namespace GoogleARCore.Examples.AugmentedImage
             if(!MapOn)
             {
                 FitToScanOverlay.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
             }
         }
 
