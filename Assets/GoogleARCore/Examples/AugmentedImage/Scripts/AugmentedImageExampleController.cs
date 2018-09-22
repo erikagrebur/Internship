@@ -116,12 +116,12 @@ namespace GoogleARCore.Examples.AugmentedImage
                     return;
                 }
             }
-            
+            /*
             if(!MapOn)
             {
                 FitToScanOverlay.SetActive(true);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
-            }
+            }*/
         }
 
         IEnumerator ForwardToAfterS()
