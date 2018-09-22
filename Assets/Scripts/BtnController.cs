@@ -162,13 +162,34 @@ public class BtnController : MonoBehaviour {
             case "Close_Third_Backpack_Btn":
                 if (backpackFrom == "FourthQuizImage")
                 {
-                    // TODO   
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBackpack").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthQuiz").gameObject.SetActive(true);
+                    backpackFrom = "";
                 }
                 else
                 {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBackpack").gameObject.SetActive(false);
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdAfter").gameObject.SetActive(true);
                 }
+                break;
+            case "Fourth_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthAfter").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthBackpack").gameObject.SetActive(true);
+                break;
+            case "Ready_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FinalBackpack").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(true);
+                break;
+            case "Final_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FinalBackpack").gameObject.SetActive(true);
+                break;
+            case "Close_Final_Backpack_Btn":
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FinalBackpack").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(true);
+                break;
+            case "07_Btn":
+                Debug.Log("belemegy");
                 break;
             default:
                 Debug.Log("Something went wrong");
