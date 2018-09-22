@@ -120,9 +120,8 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Second_Continue_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondAfter").gameObject.SetActive(false);
-                // TODO: Induljon el a következő animáció ( a harmadik quiz előtti )
-                // Bemutatóig:
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").transform.GetComponent<Animator>().Play("catAnim_21");
+                StartCoroutine(OpenTheThirdQuiz());
                 break;
             case "Close_Second_Backpack_Btn":
                 if (backpackFrom == "ThirdQuizImage")
@@ -157,7 +156,8 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Third_Continue_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdAfter").gameObject.SetActive(false);
-                // TODO: Induljon el a következő animáció ( a negyedik quiz előtti )
+                GameObject.FindGameObjectWithTag("Cat").transform.Find("cat_anim_fbx").transform.GetComponent<Animator>().Play("catAnim_25");
+                StartCoroutine(OpenTheFourthQuiz());
                 break;
             case "Close_Third_Backpack_Btn":
                 if (backpackFrom == "FourthQuizImage")
@@ -211,5 +211,17 @@ public class BtnController : MonoBehaviour {
     {
         yield return new WaitForSeconds(18);
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").gameObject.SetActive(true);
+    }
+
+    IEnumerator OpenTheThirdQuiz()
+    {
+        yield return new WaitForSeconds(10);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdBefore").gameObject.SetActive(true);
+    }
+
+    IEnumerator OpenTheFourthQuiz()
+    {
+        yield return new WaitForSeconds(8);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthQuiz").gameObject.SetActive(true);
     }
 }
