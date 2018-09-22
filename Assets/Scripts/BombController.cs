@@ -123,7 +123,6 @@ public class BombController : MonoBehaviour {
 
     public void Check()
     {
-        Debug.Log(selectedDigits.Count);
         if (selectedDigits.Count != correctDigits.Count)
         {
             Clear();
@@ -135,12 +134,24 @@ public class BombController : MonoBehaviour {
                 {
                     Clear();
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").Find("AttentionArrow").gameObject.SetActive(true);
-                } else
-                {
-                    Debug.Log("Átmegy a bomba füstőlős screenre");
                 }
             }
+            if(!GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").Find("AttentionArrow").gameObject.active)
+            {
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("DeactivatedBombElements").gameObject.SetActive(true);
+                StartCoroutine(ForwardToTheLastScreen());
+            }
         } 
+    }
+
+    IEnumerator ForwardToTheLastScreen()
+    {
+
+        yield return new WaitForSeconds(2.5f);
+
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("DeactivatedBombElements").gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Congratulation").gameObject.SetActive(true);
     }
 
     public void Clear()

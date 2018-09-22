@@ -186,6 +186,7 @@ public class BtnController : MonoBehaviour {
                 break;
             case "Close_Final_Backpack_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FinalBackpack").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").Find("AttentionArrow").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(true);
                 break;
             case "07_Btn":
