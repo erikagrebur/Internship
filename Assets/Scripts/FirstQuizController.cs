@@ -18,36 +18,20 @@ public class FirstQuizController : MonoBehaviour
                 StartCoroutine(ForwardAfterSeconds());
                 break;
             case "Help_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizImage").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Yes_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("No_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Help_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("HelpImage").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Close_Help_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("HelperElements").gameObject.SetActive(true);
                 break;
             case "Close_Help_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("HelpImage").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Close_Help_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizImage").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Yes_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("No_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Help_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("HelperElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizElements").gameObject.SetActive(true);
                 break;
             case "Try_Again_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("WrongAnswerImage").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Try_Again_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizImage").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Yes_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("No_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Help_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("WrongAnswerElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizElements").gameObject.SetActive(true);
                 break;
             default:
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizImage").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Yes_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("No_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Help_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("WrongAnswerImage").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("Try_Again_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("FirstQuizElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstQuiz").Find("WrongAnswerElements").gameObject.SetActive(true);
                 break;
         }
 

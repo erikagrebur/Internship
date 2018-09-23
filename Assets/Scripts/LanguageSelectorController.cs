@@ -34,6 +34,6 @@ public class LanguageSelectorController : MonoBehaviour {
                 PlayerPrefs.SetString("appLang", "English");
                 break;
         }
-        SceneManager.LoadScene("WelcomeScene");
+        SceneManager.LoadScene("AugmentedImage");
     }
 }

@@ -42,11 +42,10 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// The overlay containing the fit to scan user guide.
         /// </summary>
         public GameObject FitToScanOverlay;
-
-        public bool MapOn = false;
+        
+        public bool ShouldFollow = false;
 
         public GameObject HejSpeech;
-        public GameObject HejSpeechButton;
         private bool HejSpeechOn = false;
 
         private string customCatNameWelcome;
@@ -117,10 +116,9 @@ namespace GoogleARCore.Examples.AugmentedImage
                 }
             }
             
-            if(!MapOn)
+            if(ShouldFollow)
             {
                 FitToScanOverlay.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
             }
         }
 
@@ -133,11 +131,10 @@ namespace GoogleARCore.Examples.AugmentedImage
             {
                 customCatNameWelcome = "My name is Misser";
             }
-            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").GetComponent<Text>().text = customCatNameWelcome;
+            GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeechElements").Find("Hej_Speech_Cat_Txt").GetComponent<Text>().text = customCatNameWelcome;
             
             yield return new WaitForSeconds(3);
-            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Txt").gameObject.SetActive(true);
-            GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").gameObject.SetActive(true);
+            ShouldFollow = false;
             HejSpeech.SetActive(true);
             /*
             yield return new WaitForSeconds(0.81f);
@@ -157,8 +154,6 @@ namespace GoogleARCore.Examples.AugmentedImage
                         break;
                 }
             }*/
-
-            HejSpeechButton.SetActive(true);
         }
     }
 }

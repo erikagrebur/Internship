@@ -20,71 +20,48 @@ public class BtnController : MonoBehaviour {
         switch (buttonName)
         {
             case "Sure_Btn":
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Welcome").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Sure_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("FirstSlider").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("First_Next_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstSlider").gameObject.SetActive(true);
                 break;
             case "First_Next_Btn":
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("First_Next_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("FirstSlider").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("SecondSlider").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Second_Next_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstSlider").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondSlider").gameObject.SetActive(true);
                 break;
             case "Second_Next_Btn":
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Second_Next_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("SecondSlider").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondSlider").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").gameObject.SetActive(true);
                 break;
             case "Start_Btn":
-                catName = GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").Find("Text").GetComponent<Text>().text;
+                catName = GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").Find("Cat_Name_Input").Find("Text").GetComponent<Text>().text;
                 if (catName == "")
                 {
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(false);
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(false);
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(false);
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(false);
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("WrongSlider").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Try_Again_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("MissingCatNameElements").gameObject.SetActive(true);
                 } else
                 {
-                    GameObject.FindGameObjectWithTag("Slider").transform.Find("Saving_Txt").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").Find("Saving_Txt").gameObject.SetActive(true);
                     PlayerPrefs.SetString("catName", catName);
-                    SceneManager.LoadScene("AugmentedImage");
+                    GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().ShouldFollow = true;
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").gameObject.SetActive(false);
                 }
                 break;
             case "Try_Again_Btn":
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("WrongSlider").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Try_Again_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("ThirdSlider").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Start_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Slider").transform.Find("Random_Btn").gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("MissingCatNameElements").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").gameObject.SetActive(true);
                 break;
             case "Show_Map_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Close_Map_Btn").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = true;
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().ShouldFollow = false;
                 break;
             case "Close_Map_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("Map").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Close_Map_Btn").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().MapOn = false;
+                GameObject.FindGameObjectWithTag("Controller").transform.GetComponent<AugmentedImageExampleController>().ShouldFollow = true;
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstClue").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Show_Map_Btn").gameObject.SetActive(true);
                 break;
             case "Hej_Speech_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeech").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Cat_Txt").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Txt").gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Hej_Speech_Btn").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("HejSpeechElements").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FollowMe").gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("Let_Start_Btn").gameObject.SetActive(true);
                 break;
             case "Backpack_Btn":
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstAfter").gameObject.SetActive(false);
@@ -99,13 +76,7 @@ public class BtnController : MonoBehaviour {
                 if(backpackFrom == "SecondQuizImage")
                 {
                     GameObject.FindGameObjectWithTag("Cnv").transform.Find("FirstBackpack").gameObject.SetActive(false);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizImage").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Help_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Backpack_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("German_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Danish_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("Russian_Btn").gameObject.SetActive(true);
-                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("English_Btn").gameObject.SetActive(true);
+                    GameObject.FindGameObjectWithTag("Cnv").transform.Find("SecondQuiz").Find("SecondQuizElements").gameObject.SetActive(true);
                     backpackFrom = "";
                 }
                 else
@@ -177,7 +148,7 @@ public class BtnController : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthBackpack").gameObject.SetActive(true);
                 break;
             case "Ready_Btn":
-                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FinalBackpack").gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Cnv").transform.Find("FourthBackpack").gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Cnv").transform.Find("BombElements").gameObject.SetActive(true);
                 break;
             case "Final_Backpack_Btn":
@@ -204,7 +175,7 @@ public class BtnController : MonoBehaviour {
         System.Random random = new System.Random();
         int nameIndex = random.Next(names.Length);
         string name = names[nameIndex];
-        GameObject.FindGameObjectWithTag("Slider").transform.Find("Cat_Name_Input").GetComponent<InputField>().text = name;
+        GameObject.FindGameObjectWithTag("Cnv").transform.Find("ThirdSlider").Find("Cat_Name_Input").GetComponent<InputField>().text = name;
     }
 
     IEnumerator OpenTheSecondQuiz()

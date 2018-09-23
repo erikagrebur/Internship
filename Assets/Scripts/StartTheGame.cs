@@ -41,7 +41,6 @@ public class StartTheGame : MonoBehaviour {
     public void StartGame()
     {
         GameObject.FindGameObjectWithTag("Cnv").transform.Find("FollowMe").gameObject.SetActive(false);
-        GameObject.FindGameObjectWithTag("Cnv").transform.Find("Let_Start_Btn").gameObject.SetActive(false);
 
         StandUp();
     }

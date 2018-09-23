@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LanguageSelector.unity
     guid: 16bcdf74953040e48986f3b4a366072d
   - enabled: 1
-    path: Assets/Scenes/WelcomeScene.unity
-    guid: 23c5f2d05d2b93040a8316d71815452f
-  - enabled: 1
     path: Assets/GoogleARCore/Examples/AugmentedImage/Scenes/AugmentedImage.unity
     guid: be567d47d3ab94b3badc5b211f535a24
   m_configObjects: {}
