@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------
+﻿//-----------------------------------------------------------------------
 // <copyright file="AugmentedImageExampleController.cs" company="Google">
 //
 // Copyright 2018 Google Inc. All Rights Reserved.
@@ -55,12 +55,39 @@ namespace GoogleARCore.Examples.AugmentedImage
 
         private List<AugmentedImage> m_TempAugmentedImages = new List<AugmentedImage>();
 
+        private void Start()
+        {
+            Debug.Log("ezitt" + PlayerPrefs.GetString("appLang"));
+            if (PlayerPrefs.GetString("appLang") != null)
+            {
+                switch (PlayerPrefs.GetString("appLang"))
+                {
+                    case "English":
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Text").GetComponent<Text>().text = "Hej buddy,\nwanna join an\nexciting adventure?";
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Btn_Txt").GetComponent<Text>().text = "Sure";
+                        break;
+                    case "German":
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Text").GetComponent<Text>().text = "Hey Kumpel,\nwillst du ein aufregendes\nAbenteuer erleben?";
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Btn_Txt").GetComponent<Text>().text = "Ja klar";
+                        break;
+                    case "Danish":
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Text").GetComponent<Text>().text = "Hej kammerat,\nvil du være med i et\nspændende eventyr?";
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Btn_Txt").GetComponent<Text>().text = "Jo da";
+                        break;
+                    default:
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Text").GetComponent<Text>().text = "Hej kammerat,\nvil du være med i et\nspændende eventyr?";
+                        GameObject.FindGameObjectWithTag("Cnv").transform.Find("WelcomeElements").Find("Btn_Txt").GetComponent<Text>().text = "Jo da";
+                        break;
+                }
+            }
+
+        }
+
         /// <summary>
         /// The Unity Update method.
         /// </summary>
         public void Update()
-        {
-            
+        {              
             // Exit the app when the 'back' button is pressed.
             if (Input.GetKey(KeyCode.Escape))
             {

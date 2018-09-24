@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LanguageSelectorController : MonoBehaviour {
 
@@ -31,7 +32,7 @@ public class LanguageSelectorController : MonoBehaviour {
                 PlayerPrefs.SetString("appLang", "German");
                 break;
             default:
-                PlayerPrefs.SetString("appLang", "English");
+                PlayerPrefs.SetString("appLang", "Danish");
                 break;
         }
         SceneManager.LoadScene("AugmentedImage");
